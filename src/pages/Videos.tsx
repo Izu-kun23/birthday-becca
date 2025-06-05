@@ -58,13 +58,14 @@ const VideosPage: React.FC = () => {
 
     try {
       const newWishId = await uploadVideoAndSaveWish(name, videoFile);
-      const newVideo = {
+      const newVideo: VideoWish = {
         id: newWishId,
         name,
         fileUrl: URL.createObjectURL(videoFile),
         createdAt: new Date(),
       };
-      setVideos((prev) => [newVideo, ...prev]);
+      // Append the new video at the end
+      setVideos((prev) => [...prev, newVideo]);
       setName('');
       setVideoFile(null);
       (document.getElementById('video-upload-input') as HTMLInputElement).value = '';
@@ -76,7 +77,6 @@ const VideosPage: React.FC = () => {
     }
   };
 
-  
   // Confirm delete action inside modal
   const confirmDelete = async () => {
     if (!videoToDelete) return;
@@ -156,24 +156,29 @@ const VideosPage: React.FC = () => {
       )}
 
       <ul className="space-y-8">
-        {videos.map(({ id, name, fileUrl, createdAt }) => (
-          <li
-            key={id}
-            className="bg-gray-100 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow relative"
-          >
-            <strong className="block text-lg text-gray-800 mb-3">{name}</strong>
-            <video
-              src={fileUrl}
-              controls
-              preload="metadata"
-              className="w-full rounded-lg max-h-72 bg-black"
-            />
-            <div className="mt-2 text-sm italic text-gray-500 text-right">
-              {createdAt ? createdAt.toLocaleString() : ''}
-            </div>
-           
-          </li>
-        ))}
+        {videos
+          .sort((a, b) => {
+            const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+            const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+            return dateA - dateB; // oldest first
+          })
+          .map(({ id, name, fileUrl, createdAt }) => (
+            <li
+              key={id}
+              className="bg-gray-100 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow relative"
+            >
+              <strong className="block text-lg text-gray-800 mb-3">{name}</strong>
+              <video
+                src={fileUrl}
+                controls
+                preload="metadata"
+                className="w-full rounded-lg max-h-72 bg-black"
+              />
+              <div className="mt-2 text-sm italic text-gray-500 text-right">
+                {createdAt ? new Date(createdAt).toLocaleString() : ''}
+              </div>
+            </li>
+          ))}
       </ul>
 
       {/* Modal */}

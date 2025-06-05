@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import MusicPlayer from '../components/MusicPlayer'; // Adjust the path as needed
 
 const links = [
   { name: 'Home', path: '/' },
-
-  { name: 'Videos', path: '/videos' }, // New link added here
+  { name: 'Videos', path: '/videos' },
 ];
 
 const Navbar: React.FC = () => {
@@ -45,7 +45,6 @@ const Navbar: React.FC = () => {
     }
   }, [location.pathname]);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
@@ -54,11 +53,11 @@ const Navbar: React.FC = () => {
     <nav className="bg-pink-600 text-white p-4 relative">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo */}
-        <div className="text-2xl font-bold tracking-wide cursor-pointer z-20">
+        <div className="text-xl font-bold tracking-wide cursor-pointer z-20">
           <Link to="/">Rebecca</Link>
         </div>
 
-        {/* Desktop Links */}
+        {/* Centered Links */}
         <div className="hidden md:flex relative flex-1 justify-center">
           <ul
             ref={containerRef}
@@ -87,9 +86,12 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-        {/* Removed Desktop Login / Create Account */}
+        {/* Music Player on Desktop */}
+        <div className="hidden md:block ml-4">
+          <MusicPlayer />
+        </div>
 
-        {/* Mobile Hamburger Menu Button */}
+        {/* Hamburger Button */}
         <button
           className="md:hidden z-20 focus:outline-none"
           onClick={() => setMobileMenuOpen(prev => !prev)}
@@ -105,9 +107,9 @@ const Navbar: React.FC = () => {
             viewBox="0 0 24 24"
           >
             {mobileMenuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" /> // X icon
+              <path d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path d="M3 12h18M3 6h18M3 18h18" /> // Hamburger icon
+              <path d="M3 12h18M3 6h18M3 18h18" />
             )}
           </svg>
         </button>
@@ -120,7 +122,7 @@ const Navbar: React.FC = () => {
         transition={{ type: 'tween', duration: 0.3 }}
         className="overflow-hidden md:hidden bg-pink-700 mt-2 rounded"
       >
-        <ul className="flex flex-col space-y-3 p-4">
+        <ul className="flex flex-col items-center space-y-3 p-4">
           {links.map(({ name, path }) => (
             <li key={path}>
               <Link
@@ -134,8 +136,11 @@ const Navbar: React.FC = () => {
               </Link>
             </li>
           ))}
-          {/* Removed login/create account links */}
         </ul>
+        {/* Music Player in Mobile Menu */}
+        <div className="mt-4 px-4">
+          <MusicPlayer />
+        </div>
       </motion.div>
     </nav>
   );
