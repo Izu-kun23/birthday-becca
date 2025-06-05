@@ -65,7 +65,7 @@ const WhatWeDo: React.FC = () => {
             'Themed website design just for her',
             'Photographer and videography',
             "Taking care of her beloved (you know, making sure he's alright)",
-            "Making sure she's alright and yeah, preparing her for the greater good of tomorrow, for she is the 99.",
+            "Making sure she's alright and yeah, preparing her for the greater good of tomorrow, for she is the 1 He left the 99 for.",
           ].map((service, idx) => (
             <motion.li key={idx} variants={itemVariants}>
               {service}
