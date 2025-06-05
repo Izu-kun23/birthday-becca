@@ -12,7 +12,6 @@ import {
   saveBirthdayWish,
   fetchBirthdayWishes,
   editBirthdayWish,
-  deleteBirthdayWish,
 } from "../../api/formController";
 
 const polaroidData = [
@@ -201,16 +200,7 @@ const HomePage: React.FC = () => {
   };
 
   // === DELETE handler ===
-  const handleDelete = async (id: string) => {
-    if (!window.confirm("Are you sure you want to delete this wish?")) return;
-    try {
-      await deleteBirthdayWish(id);
-      await loadWishes();
-    } catch (error) {
-      alert("Failed to delete wish. Please try again.");
-      console.error(error);
-    }
-  };
+  
 
   const rotations = ["-10deg", "8deg", "-5deg"];
   const positions = [
@@ -373,12 +363,7 @@ So it is only right that we wish her happy birthday.
                             >
                               Edit
                             </button>
-                            <button
-                              onClick={() => handleDelete(wish.id)}
-                              className="text-red-600 hover:text-red-800 underline text-sm"
-                            >
-                              Delete
-                            </button>
+                           
                           </div>
                         </>
                       )}
