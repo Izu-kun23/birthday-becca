@@ -76,7 +76,7 @@ const Banner: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreClick 
             transition={{ delay: 2 }}
           >
             {splitTextWithSpaces(
-              'Explore our mission, discover what we do, and join us in making a difference.'
+              '05/06/2025'
             )}
           </motion.p>
 

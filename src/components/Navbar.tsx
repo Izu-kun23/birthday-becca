@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 
 const links = [
   { name: 'Home', path: '/' },
-  { name: 'What We Do', path: '/what-we-do' },
-  { name: 'Our Mission', path: '/our-mission' },
+
   { name: 'Videos', path: '/videos' }, // New link added here
 ];
 
