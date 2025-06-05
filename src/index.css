@@ -1,0 +1,20 @@
+/* Import Tailwind CSS */
+@import "tailwindcss";
+/* Import slick-carousel styles */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+/* Add Uber Move font with correct file paths */
+@font-face {
+  font-family: 'Uber Move';
+  src: url('./assets/UberMoveTextRegular.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  font-family: 'Uber Move', sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #343a40; /* Dark gray text */
+}
