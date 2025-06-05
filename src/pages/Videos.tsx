@@ -76,7 +76,6 @@ const VideosPage: React.FC = () => {
     }
   };
 
-  // Open modal instead of deleting immediately
   
   // Confirm delete action inside modal
   const confirmDelete = async () => {
