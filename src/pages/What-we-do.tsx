@@ -21,7 +21,7 @@ const WhatWeDo: React.FC = () => {
     <div className="min-h-screen bg-pink-100 pb-12">
       {/* Cover image */}
       <motion.div
-        className="w-full h-64 md:h-80 bg-pink-200 flex items-center justify-center overflow-hidden mb-8"
+        className="w-full h-64 md:h-30 bg-pink-200 flex items-center justify-center overflow-hidden mb-8"
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.1 }}
@@ -64,8 +64,7 @@ const WhatWeDo: React.FC = () => {
             'Making Rebecca happy',
             'Themed website design just for her',
             'Photographer and videography',
-            "Taking care of her beloved (you know, making sure he's alright)",
-            "Making sure she's alright and yeah, preparing her for the greater good of tomorrow, for she is the 1 He left the 99 for.",
+            "Celebrating her on her birthday",
           ].map((service, idx) => (
             <motion.li key={idx} variants={itemVariants}>
               {service}
