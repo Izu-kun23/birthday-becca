@@ -241,13 +241,13 @@ const HomePage: React.FC = () => {
             What today is
           </h3>
           <p className="text-base sm:text-lg leading-relaxed whitespace-pre-line">
-            {`Today is a very special day for Rebecca Cuffy-Oliver, as it marks her 22nd birthday! 🎉
+            {`Today is a very special day for Rebecca, as it marks her 22nd birthday! 🎉
 
-Rebecca is a vibrant and caring individual who brings joy to everyone around her. She has a passion for God and a heart full of love, making her birthday a perfect occasion to celebrate all that she is.
+Rebecca is a vibrant and caring individual who brings joy to everyone around her. She has a passion for God and a heart full of love, making her birthday the best occasion to celebrate all that she is.
 
-On this day, we want to remind Rebecca of how much she means to us and how grateful we are for her presence in our lives. Let’s make this birthday unforgettable!
+Today, we want to remind Rebecca of how much she means to us and how grateful we are for her presence in our lives.
 
-So it is only right that we wish her happy birthday and make her feel extra special. ❤️
+So it is only right that we wish her happy birthday. 
 `}
           </p>
         </motion.div>
@@ -323,7 +323,7 @@ So it is only right that we wish her happy birthday and make her feel extra spec
                   return (
                     <div
                       key={wish.id}
-                      className="min-w-[250px] max-w-xs flex-shrink-0 border border-pink-300 p-4 rounded shadow-sm bg-pink-50 relative"
+                      className="w-80 flex-shrink-0 border border-pink-300 p-4 rounded shadow-sm bg-pink-50 relative flex flex-col"
                     >
                       {isEditing ? (
                         <>
@@ -363,7 +363,7 @@ So it is only right that we wish her happy birthday and make her feel extra spec
                           <p className="font-semibold text-pink-700">
                             {wish.name}
                           </p>
-                          <p className="whitespace-pre-wrap text-pink-800">
+                          <p className="whitespace-pre-wrap break-words text-pink-800">
                             {wish.message}
                           </p>
                           <div className="flex justify-end space-x-2 mt-2">
@@ -399,8 +399,6 @@ So it is only right that we wish her happy birthday and make her feel extra spec
           </motion.div>
         </motion.section>
       )}
-
-      
 
       {/* Birthday Wish Modal */}
       {isModalOpen && (
@@ -438,7 +436,7 @@ So it is only right that we wish her happy birthday and make her feel extra spec
                 disabled={isSubmitting}
                 className="border border-pink-400 rounded p-2 focus:outline-none focus:ring-2 focus:ring-pink-500 w-full"
               />
-              
+
               <button
                 type="submit"
                 disabled={isSubmitting || fileUploading}
