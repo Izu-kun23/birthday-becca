@@ -77,11 +77,7 @@ const VideosPage: React.FC = () => {
   };
 
   // Open modal instead of deleting immediately
-  const openDeleteModal = (video: VideoWish) => {
-    setVideoToDelete(video);
-    setModalOpen(true);
-  };
-
+  
   // Confirm delete action inside modal
   const confirmDelete = async () => {
     if (!videoToDelete) return;
@@ -176,16 +172,7 @@ const VideosPage: React.FC = () => {
             <div className="mt-2 text-sm italic text-gray-500 text-right">
               {createdAt ? createdAt.toLocaleString() : ''}
             </div>
-            <button
-              onClick={() => openDeleteModal({ id, name, fileUrl, createdAt })}
-              disabled={deletingId === id || uploading || modalOpen}
-              aria-label={`Delete video wish from ${name}`}
-              className={`absolute top-2 right-2 px-3 py-1 rounded bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-colors ${
-                deletingId === id ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-            >
-              {deletingId === id ? 'Deleting...' : 'Delete'}
-            </button>
+           
           </li>
         ))}
       </ul>
