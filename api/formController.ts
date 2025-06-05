@@ -1,4 +1,4 @@
-import { db } from './FirebaseConfig';
+import { db } from '../firebaseConfig';
 import { collection, addDoc, Timestamp, query, orderBy, getDocs, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 
